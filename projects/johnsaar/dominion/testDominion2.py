@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Oct 13 15:42:42 2015
-
-@author: tfleck
+author: johnsaar (Aaron Johnson)
+date: 1/15/20
 """
 
 import Dominion
