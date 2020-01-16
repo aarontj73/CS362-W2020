@@ -8,10 +8,29 @@ import Dominion
 import random
 from collections import defaultdict
 
-player_names, nV, nC, box, supply_order, supply, players = testUtility.initializeData()
+
+##########################
+# Base game data to edit #
+##########################
+
+player_names = testUtility.getPlayerNames()
+
+nV = testUtility.setNumVictory(player_names)
+
+nC = -10 + 10 * len(player_names)
+
+box= testUtility.getBoxes(nV)
+
+supply_order = testUtility.setSupplyOrder()
+
+####################
+# Initializes game #
+####################
+supply, players = testUtility.initializeData(player_names, nV, nC, box, supply_order)
 
 #initialize the trash
 trash = []
+
 
 #Play the game
 turn  = 0

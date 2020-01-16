@@ -54,14 +54,13 @@ def setSupplyOrder():
                 4:['Gardens','Bureaucrat','Feast','Militia','Moneylender','Remodel','Smithy','Spy','Thief','Throne Room'],
                 5:['Duchy','Market','Council Room','Festival','Laboratory','Library','Mine','Witch'],
                 6:['Gold','Adventurer'],8:['Province']}
-    return supplyOrder
+	return supplyOrder
 
 def setSupplyTen(num, box, nV):
 	boxlist = [k for k in box]
 	random.shuffle(boxlist)
 	random10 = boxlist[:num]
 	supply = defaultdict(list,[(k, box[k]) for k in random10])
-
 	return supply
 
 def addBaseCards(supply, player_names, nV, nC):
@@ -85,13 +84,13 @@ def constructPlayers(player_names):
 	        players.append(Dominion.Player(name))
 	return players
 
-def initializeData():
-	player_names = getPlayerNames()
-	nV = setNumVictory(player_names)
-	nC = -10 + 10 * len(player_names)
-	box = getBoxes(nV)
-	supply_order = setSupplyOrder()
+def initializeData(player_names, nV, nC, box, supply_order):
+	#player_names = getPlayerNames()
+	#nV = setNumVictory(player_names)
+	#nC = -10 + 10 * len(player_names)
+	#box = getBoxes(nV)
+	#supply_order = setSupplyOrder()
 	supplyTen = setSupplyTen(10, box, nV)
 	supply = addBaseCards(supplyTen, player_names, nV, nC)
 	players = constructPlayers(player_names)
-	return player_names, nV, nC, box, supply_order, supply, players
+	return supply, players
