@@ -13,7 +13,7 @@ from collections import defaultdict
 # Base game data to edit #
 ##########################
 
-player_names = testUtility.getPlayerNames()
+player_names = testUtility.getPlayerNames("Annie", "*Ben", "*Carla")
 
 nV = testUtility.setNumVictory(player_names)
 
@@ -22,6 +22,15 @@ nC = -10 + 10 * len(player_names)
 box= testUtility.getBoxes(nV)
 
 supply_order = testUtility.setSupplyOrder()
+
+######################################
+# Test Scenario 1: Set everything in #
+#        supply_order to be 0        #
+######################################
+remove = [2, 3, 4, 5, 6 ,8]
+for num in remove:
+	supply_order[0].extend(supply_order[num])
+	del supply_order[num]
 
 ####################
 # Initializes game #

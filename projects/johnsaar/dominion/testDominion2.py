@@ -13,13 +13,19 @@ from collections import defaultdict
 # Base game data to edit #
 ##########################
 
-player_names = testUtility.getPlayerNames()
+player_names = testUtility.getPlayerNames("Annie", "*Ben", "*Carla")
 
 nV = testUtility.setNumVictory(player_names)
 
 nC = -10 + 10 * len(player_names)
 
 box= testUtility.getBoxes(nV)
+
+############################################
+#   Test Scenario 2: Only 1 of each card   #
+############################################
+for name in box:
+    box[name] = box[name][9:]
 
 supply_order = testUtility.setSupplyOrder()
 

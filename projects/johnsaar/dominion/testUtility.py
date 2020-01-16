@@ -7,10 +7,16 @@ import Dominion
 import random
 from collections import defaultdict
 
-def getPlayerNames():
-	names = ["Annie","*Ben","*Carla"]
-	return names
 
+#Player names taken as argument here
+def getPlayerNames(*names):
+	#names = ["Annie","*Ben","*Carla"]
+	namelist = []
+	for name in names:
+		namelist.append(name)
+	return namelist
+
+#list of player names
 def setNumVictory(list):
 	if len(list)>2:
 		nV=12
